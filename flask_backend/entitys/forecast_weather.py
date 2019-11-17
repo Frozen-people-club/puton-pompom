@@ -1,5 +1,5 @@
 from mongoengine import *
-
+from flask_backend.entitys.clothes_set import ClothesSet
 
 class Main(EmbeddedDocument):
     temp = IntField()
@@ -50,6 +50,7 @@ class OneWeather(EmbeddedDocument):
     sys = EmbeddedDocumentField(Sys)
     rain = EmbeddedDocumentField(Rain)
     snow = EmbeddedDocumentField(Snow)
+    clothes = EmbeddedDocumentField(ClothesSet)
 
 
 class Coord(EmbeddedDocument):
