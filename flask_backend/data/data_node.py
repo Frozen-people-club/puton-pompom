@@ -21,13 +21,10 @@ def get_current_weather(args):
             return weather
         else:
             weather = api.get_current_weather(args)
-
             upgrade_response(weather)
-
             weather['id'] = weather['name']
-            dao.save_current_weather(weather)
 
-            return weather
+            return dao.save_current_weather(weather)
     else:
         return api.get_current_weather(args)
 
@@ -48,9 +45,8 @@ def get_forecast_weather(args):
 
             weather['_id'] = weather['city']['name']
             weather['start_dt'] = weather['list'][0]['dt']
-            dao.save_forecast_weathers(weather)
 
-            return weather
+            return dao.save_forecast_weathers(weather)
     else:
         return api.get_forecast_5d3h_weather(args)
 

@@ -65,7 +65,7 @@ function getServedPath(appPackageJson) {
 
 // config after eject: we're in ./config/
 module.exports = {
-  appBuild: resolveApp('../flask-backend/static/react'),
+  appBuild: resolveApp('../flask_backend/static/react'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),

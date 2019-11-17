@@ -17,8 +17,13 @@ def get_forecast_weather_by_city_or_none(city):
 
 
 def save_current_weather(current_response):
-    CurrentWeather(**current_response).save()
+    weather_object = CurrentWeather(**current_response)
+    weather_object.save()
+    return weather_object
+
 
 
 def save_forecast_weathers(forecast_response):
-    ForecastWeather(**forecast_response).save()
+    weather_object = ForecastWeather(**forecast_response)
+    weather_object.save()
+    return weather_object
