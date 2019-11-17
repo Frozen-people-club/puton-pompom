@@ -7,51 +7,59 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    this.getWeather = this.getWeather.bind(this);
+    this.getForecast = this.getForecast.bind(this);
     this.state = {
-      city: "Yaroslavl",
-      currentWeather: [],
+      weatherData: null,
       forecast: [],
-      error: ""
     };
 
-}
-  setCity(city) {
-    this.setState({
-      city: city
-    });
-
   }
+
+componentWillMount() {
+    let current = this.getWeather(window.current);
+    let fore = this.getForecast(window.forecast);
+    this.setState({
+    weatherData: current,
+    forecast: fore
+    });
+ }
 
   componentDidMount() {
-    this.setState({ error: "" });
-    this.getWeather(this.state.city);
-  }
+    let current = this.getWeather(window.current);
+    let fore = this.getForecast(window.forecast);
+    this.setState({
+    weatherData: current,
+    forecast: fore
+    });
+   }
 
-  componentDidUpdate(prevProps, prevState) {
+  /*componentDidUpdate(prevProps, prevState) {
     if (this.state.city !== prevState.city) {
-      this.setState({ error: "" });
-      this.getWeather(this.state.city);
+      this.setState({
+    currentWeather: this.getWeather(this.state.city)
+    });
+    this.setState({
+    forecast: this.getForecast(this.state.city)})
     }
   }
+*/
 
 
-  getWeather(city) {
-    const mappedData = this.mapDataToWeatherInterface(window.current);
-    this.setState({currentWeather: mappedData});
-    this.getForecast(this.state.city, mappedData);
+  getWeather(current) {
+    const mappedData = this.mapDataToWeatherInterface(current);
+    return mappedData;
     }
 
 
 
-  getForecast(city, mappedData) {
-    let result = window.forecast;
+  getForecast(fore) {
+    let result = fore;
     const forecast = [];
     for (let i = 0; i < result.list.length; i += 8) {
         forecast.push(this.mapDataToWeatherInterface(result.list[i + 4]));
     }
-    this.setState({
-            forecast: forecast
-          });
+    return forecast;
    }
 
   mapDataToWeatherInterface = data => {
@@ -89,13 +97,12 @@ class App extends Component {
 
 
   render() {
-    const { city, currentWeather, forecast, error } = this.state;
-    let current_weather = <CurrentWeather city={this.state.currentWeather.city} temp={this.state.currentWeather.temp} />
+    let currentWeather = this.state.weatherData;
+    let forecast = this.state.forecast;
+    let current_weather = <CurrentWeather city={this.state.weatherData.city} temp={this.state.weatherData.temperature} />
     return (
       <div className="App">
-           city={city}
             {current_weather}
-            {this.state.currentWeather.temp}
       </div>
     );
 }
