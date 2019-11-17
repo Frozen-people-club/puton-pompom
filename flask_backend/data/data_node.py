@@ -4,11 +4,9 @@ from datetime import datetime
 
 
 """10 min"""
-
 delay_for_current_weather = 10*60
 
 """1 hour"""
-
 delay_for_forecast_weather = 60*60
 
 
@@ -70,4 +68,41 @@ def upgrade_response(one_weather):
             dic['one_h'] = rain['1h']
         one_weather['snow'] = dic
 
+    determine_clothes_set(one_weather)
+
     return one_weather
+
+
+def determine_clothes_set(one_weather):
+    if one_weather['main']['temp'] < 273.15 + 15:
+        temp = one_weather['main']['temp_min']
+    else:
+        temp = one_weather['main']['temp']
+
+    if temp > 273.15 + 30:
+        one_weather['clothes'] = {'icon_id': 'set0'}
+    elif temp > 273.15 + 20:
+        one_weather['clothes'] = {'icon_id': 'set1'}
+    elif temp > 273.15 + 15:
+        one_weather['clothes'] = {'icon_id': 'set2'}
+    elif temp > 273.15 + 10:
+        one_weather['clothes'] = {'icon_id': 'set3'}
+    elif temp > 273.15 + 5:
+        one_weather['clothes'] = {'icon_id': 'set4'}
+    elif temp > 273.15 + 0:
+        one_weather['clothes'] = {'icon_id': 'set5'}
+    elif temp > 273.15 - 5:
+        one_weather['clothes'] = {'icon_id': 'set6'}
+    elif temp > 273.15 - 10:
+        one_weather['clothes'] = {'icon_id': 'set7'}
+    elif temp > 273.15 - 15:
+        one_weather['clothes'] = {'icon_id': 'set8'}
+    elif temp > 273.15 - 20:
+        one_weather['clothes'] = {'icon_id': 'set9'}
+    elif temp > 273.15 - 30:
+        one_weather['clothes'] = {'icon_id': 'set10'}
+    elif temp < 273.15 - 30:
+        one_weather['clothes'] = {'icon_id': 'set11'}
+
+    return one_weather
+
