@@ -1,5 +1,5 @@
-from entitys.forecast_weather import ForecastWeather, DoesNotExist
-from entitys.current_weather import CurrentWeather, DoesNotExist
+from flask_backend.entitys.forecast_weather import ForecastWeather, DoesNotExist
+from flask_backend.entitys.current_weather import CurrentWeather, DoesNotExist
 
 
 def get_current_weather_by_city_or_none(city):

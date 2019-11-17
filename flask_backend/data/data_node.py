@@ -1,5 +1,5 @@
-import weather_api as api
-import weather_dao as dao
+from flask_backend.data import weather_api as api
+from flask_backend.data import weather_dao as dao
 from datetime import datetime
 
 
