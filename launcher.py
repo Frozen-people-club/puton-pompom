@@ -1,4 +1,7 @@
 from flask_backend import app
 
-app.run(debug=True)
+
+app
+
+"app.run(debug=True)"
 
