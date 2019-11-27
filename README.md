@@ -17,7 +17,8 @@
           `"timezone":10800,`<br>
           `"visibility":10000,`<br>
           `"weather":[{"description":"overcast clouds","icon":"04n","id":804,"main":"Clouds"}],`<br>
-          `"wind":{"deg":150,"speed":2}`<br>
+          `"wind":{"deg":150,"speed":2},`<br>
+          `"clothes":{"icon_id": "set5"}`<br>
         `}`<br>
 			
   
@@ -60,6 +61,7 @@
               `"clouds":{"all":26},`<br>
               `"dt":1573257600,`<br>
               `"dt_txt":"2019-11-09 00:00:00",`<br>
+              `"clothes":{"icon_id": "set5"},`<br>
               `"main":{`<br>
                 `"grnd_level":1014,`<br>
                 `"humidity":94,`<br>
@@ -71,6 +73,6 @@
                 `"temp_min":270.76`<br>
               `},`<br>
                `"sys":{"pod":"n"},`<br>
-               `"weather":[{"description":"scattered clouds","icon":"03n","id":802,"main":"Clouds"}],"wind":       {"deg":194,"speed":2}`<br>
+               `"weather":[{"description":"scattered clouds","icon":"03n","id":802,"main":"Clouds"}],"wind":{"deg":194,"speed":2}`<br>
              `}, `<br>
           `...] etc`<br>

@@ -27,6 +27,12 @@ def uploaded_file(filename):
     return image
 
 
+@app.route('/favicon.ico')
+def favicon():
+    image = send_from_directory(app.config['UPLOAD_FOLDER'], 'favicon.ico')
+    return image
+
+
 @app.route('/<city>')
 def index(city=None):
     c = node.get_current_weather({'q': city}).to_json()
