@@ -6,7 +6,7 @@ from flask_backend.data import data_node as node
 import flask_backend.data
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = '../res'
+app.config['UPLOAD_FOLDER'] = '../res/public'
 data.init_app(app)
 
 
