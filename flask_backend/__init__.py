@@ -1,7 +1,6 @@
 #!flask/bin/python
 from flask import Flask
 from flask import request
-from flask import render_template
 from flask import send_from_directory
 from flask_backend.data import data_node as node
 import flask_backend.data
@@ -25,18 +24,5 @@ def forecast():
 def uploaded_file(filename):
     image = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
     return image
-
-
-@app.route('/favicon.ico')
-def favicon():
-    image = send_from_directory(app.config['UPLOAD_FOLDER'], 'favicon.ico')
-    return image
-
-
-@app.route('/<city>')
-def index(city=None):
-    c = node.get_current_weather({'q': city}).to_json()
-    f = node.get_forecast_weather({'q': city}).to_json()
-    return render_template('index.html', current=c, forecast=f)
 
 
