@@ -12,19 +12,19 @@ data.init_app(app)
 
 
 @app.route('/api/v1.0/current')
-@cross_origin()
+@cross_origin(origin='*')
 def current():
     return node.get_current_weather(request.args).to_json()
 
 
 @app.route('/api/v1.0/forecast')
-@cross_origin()
+@cross_origin(origin='*')
 def forecast():
     return node.get_forecast_weather(request.args).to_json()
 
 
 @app.route('/loadfile/<filename>')
-@cross_origin()
+@cross_origin(origin='*')
 def uploaded_file(filename):
     image = send_from_directory(app.config['UPLOAD_FOLDER'], filename)
     return image
