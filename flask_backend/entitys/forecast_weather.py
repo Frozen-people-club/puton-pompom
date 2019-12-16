@@ -6,6 +6,7 @@ class Main(EmbeddedDocument):
     temp_min = FloatField()
     temp_max = FloatField()
     temp_kf = FloatField()
+    feels_like = FloatField()
     pressure = FloatField()
     sea_level = FloatField()
     grnd_level = FloatField()
