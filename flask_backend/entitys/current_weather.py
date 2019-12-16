@@ -8,6 +8,7 @@ class Main(EmbeddedDocument):
     temp_max = FloatField()
     pressure = FloatField()
     humidity = FloatField()
+    feels_like = FloatField()
 
 
 class Weather(EmbeddedDocument):
