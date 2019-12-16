@@ -1,6 +1,9 @@
 
 const path = require('path')
+const utl = require('url')
+const isDev = require('electron-is-dev')
 const {app, BrowserWindow} = require('electron')
+
 
 let window = null
 
@@ -16,7 +19,7 @@ function createWindow() {
     }
 
     window = new BrowserWindow(windowOptionsn)
-    window.loadURL(path.join('file://', __dirname, '/index.html'))
+    window.loadURL(isDev ? 'http:localhost:3000' : path.join('file://', __dirname, '../public/index.html'))
 
     window.on('closed', () => {
         window = null
@@ -24,3 +27,15 @@ function createWindow() {
 }
 
 app.on('ready', createWindow)
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+})
+
+app.on('activate', () => {
+    if (window === null) {
+        createWindow()
+    }
+})
