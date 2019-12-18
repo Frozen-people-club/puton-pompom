@@ -76,3 +76,6 @@
                `"weather":[{"description":"scattered clouds","icon":"03n","id":802,"main":"Clouds"}],"wind":{"deg":194,"speed":2}`<br>
              `}, `<br>
           `...] etc`<br>
+
+3. /loadfile/<filename><br>
+	load file from resources
