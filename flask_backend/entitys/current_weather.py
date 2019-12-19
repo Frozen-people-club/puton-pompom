@@ -25,6 +25,7 @@ class Clouds(EmbeddedDocument):
 class Wind(EmbeddedDocument):
     speed = FloatField()
     deg = FloatField()
+    gust = FloatField()
 
 
 class Sys(EmbeddedDocument):
