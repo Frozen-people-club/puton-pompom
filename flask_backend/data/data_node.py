@@ -79,30 +79,29 @@ def determine_clothes_set(one_weather):
     else:
         temp = one_weather['main']['temp']
 
-    if temp > 273.15 + 30:
-        one_weather['clothes'] = {'icon_id': 'set0'}
-    elif temp > 273.15 + 20:
-        one_weather['clothes'] = {'icon_id': 'set1'}
-    elif temp > 273.15 + 15:
-        one_weather['clothes'] = {'icon_id': 'set2'}
-    elif temp > 273.15 + 10:
-        one_weather['clothes'] = {'icon_id': 'set3'}
-    elif temp > 273.15 + 5:
-        one_weather['clothes'] = {'icon_id': 'set4'}
-    elif temp > 273.15 + 0:
-        one_weather['clothes'] = {'icon_id': 'set5'}
-    elif temp > 273.15 - 5:
-        one_weather['clothes'] = {'icon_id': 'set6'}
-    elif temp > 273.15 - 10:
-        one_weather['clothes'] = {'icon_id': 'set7'}
-    elif temp > 273.15 - 15:
-        one_weather['clothes'] = {'icon_id': 'set8'}
-    elif temp > 273.15 - 20:
+    if one_weather['weather']['main'] == 'Rain' and 273.15 + 5 < temp < 273.15 + 20:
         one_weather['clothes'] = {'icon_id': 'set9'}
-    elif temp > 273.15 - 30:
-        one_weather['clothes'] = {'icon_id': 'set10'}
-    elif temp < 273.15 - 30:
-        one_weather['clothes'] = {'icon_id': 'set11'}
+    else:
+        if temp > 273.15 + 30:
+            one_weather['clothes'] = {'icon_id': 'set0'}
+        elif temp > 273.15 + 20:
+            one_weather['clothes'] = {'icon_id': 'set1'}
+        elif temp > 273.15 + 15:
+            one_weather['clothes'] = {'icon_id': 'set2'}
+        elif temp > 273.15 + 10:
+            one_weather['clothes'] = {'icon_id': 'set3'}
+        elif temp > 273.15 + 5:
+            one_weather['clothes'] = {'icon_id': 'set4'}
+        elif temp > 273.15 + 0:
+            one_weather['clothes'] = {'icon_id': 'set5'}
+        elif temp > 273.15 - 5:
+            one_weather['clothes'] = {'icon_id': 'set5'}
+        elif temp > 273.15 - 10:
+            one_weather['clothes'] = {'icon_id': 'set6'}
+        elif temp > 273.15 - 20:
+            one_weather['clothes'] = {'icon_id': 'set7'}
+        elif temp < 273.15 - 20:
+            one_weather['clothes'] = {'icon_id': 'set8'}
 
     return one_weather
 

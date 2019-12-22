@@ -6,7 +6,7 @@ from flask_cors import CORS, cross_origin
 from flask_backend.data import data_node as node
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = '../res'
+app.config['UPLOAD_FOLDER'] = '../res/public'
 CORS(app)
 data.init_app(app)
 
