@@ -79,7 +79,7 @@ def determine_clothes_set(one_weather):
     else:
         temp = one_weather['main']['temp']
 
-    if one_weather['weather']['main'] == 'Rain' and 273.15 + 5 < temp < 273.15 + 20:
+    if one_weather['weather'][0]['main'] == 'Rain' and 273.15 + 0 < temp < 273.15 + 20:
         one_weather['clothes'] = {'icon_id': 'set9'}
     else:
         if temp > 273.15 + 30:
