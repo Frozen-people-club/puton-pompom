@@ -15,7 +15,7 @@ def get_current_weather(args):
     if 'q' in args:
         now_dt = datetime.now()
         weather = dao.get_current_weather_by_city_or_none(args['q'])
-        if weather is not None and (now_dt.timestamp() + weather.timezone) - weather.dt < delay_for_current_weather:
+        if weather is not None and now_dt.timestamp() - weather.dt < delay_for_current_weather:
             return weather
         else:
             weather = api.get_current_weather(args)
@@ -32,7 +32,7 @@ def get_forecast_weather(args):
     if 'q' in args:
         now_dt = datetime.now()
         weather = dao.get_forecast_weather_by_city_or_none(args['q'])
-        if weather is not None and (now_dt.timestamp() + weather.city.timezone) - weather.start_dt < delay_for_forecast_weather:
+        if weather is not None and now_dt.timestamp() - weather.start_dt < delay_for_forecast_weather:
             return weather
         else:
             weather = api.get_forecast_5d3h_weather(args)
